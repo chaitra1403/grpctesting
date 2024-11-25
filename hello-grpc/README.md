@@ -10,5 +10,13 @@ create mockserver using:
 
     `mockgen -source=proto/hello_grpc.pb.go -destination=mock_hello.pb.go -package=hello`
 
+
+TO DO:
+
 given .proto file, .go files
-generate stub files, create mock server using stub files, generate test files
+
+generate stub files <protoc>
+
+create mockserver.pb.go using stub files <mockgen>
+
+generate test files USE ROOST-GPT(protofile,mockserverstub) returns(test_files)
