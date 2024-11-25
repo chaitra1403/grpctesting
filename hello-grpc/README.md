@@ -15,8 +15,8 @@ TO DO:
 
 given .proto file, .go files
 
-generate stub files <protoc>
+generate stub files using protoc
 
-create mockserver.pb.go using stub files <mockgen>
+create mockserver.pb.go using stub files using mockgen
 
 generate test files USE ROOST-GPT(protofile,mockserverstub) returns(test_files)
