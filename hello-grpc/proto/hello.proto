@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package hello;
+
+import "google/api/annotations.proto";  // Required for HTTP annotations
+
+option go_package = "../grpc;hello";
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+}
+
+// The response message containing the server's greeting and acknowledgment.
+message HelloReply {
+  string message = 1;
+  string acknowledgment = 2;  // Acknowledgment message
+}
+
+// The Greeter service definition.
+service Greeter {
+  // Sends a greeting and acknowledgment
+  rpc SayHello (HelloRequest) returns (HelloReply) {
+    option (google.api.http) = {
+      post: "/v1/hello"
+      body: "*"
+    };
+  }
+}
