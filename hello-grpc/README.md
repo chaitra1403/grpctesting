@@ -50,11 +50,11 @@ create mockserver using:
 
 given .proto file, .go files
 
-generate stub files using protoc
+--> generate stub files using protoc
 
-create mockserver.pb.go using stub files using mockgen
+--> create mockserver.pb.go using stub files using mockgen
 
-generate test files using ROOST-GPT
+generate test files using ROOST-GPT AI
 
 input(protofile,mockserverstub) 
 returns(test_files)
