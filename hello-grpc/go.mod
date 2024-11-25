@@ -16,8 +16,8 @@ require (
 	// github.com/golang/protobuf v1.5.4 // indirect
 	// github.com/grpc-ecosystem/grpc-gateway v1.16.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
-	// google.golang.org/genproto/googleapis/api v0.0.0-20241118233622-e639e219e697 // indirect
-	// gopkg.in/yaml.v2 v2.4.0 // indirect
+// google.golang.org/genproto/googleapis/api v0.0.0-20241118233622-e639e219e697 // indirect
+// gopkg.in/yaml.v2 v2.4.0 // indirect
 )
 
 require (

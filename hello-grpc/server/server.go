@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net"
 
-	pb "github.com/chaitra1403/hello-grpc/grpc"
+	pb "github.com/chaitra1403/hello-grpc/proto"
 	"google.golang.org/grpc"
 )
 

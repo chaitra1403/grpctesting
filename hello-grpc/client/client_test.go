@@ -4,34 +4,38 @@ import (
 	"context"
 	"testing"
 
-	hello "github.com/chaitra1403/hello-grpc/grpc"
+	mock "github.com/chaitra1403/hello-grpc"
+	hello "github.com/chaitra1403/hello-grpc/proto"
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"
 )
 
+// TestGreeterClient_SayHello tests the gRPC client
 func TestGreeterClient_SayHello(t *testing.T) {
-	// Create a new mock controller
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
 	// Create a mock GreeterClient
-	mockGreeterClient := hello.NewMockGreeterClient(ctrl)
+	mockGreeterClient := mock.NewMockGreeterClient(ctrl)
 
-	// Setup mock expectations
+	// Set up mock expectations
 	mockGreeterClient.EXPECT().
 		SayHello(gomock.Any(), gomock.Any()).
 		Return(&hello.HelloReply{
-			Message:        "Hello, Chaitra!",
+			Message:        "Hello Chaitra",
 			Acknowledgment: "Hello received: Chaitra",
 		}, nil).
 		Times(1)
 
-	// Call the mocked method directly without trying to establish a real connection
+	// Create a mock context and request
+	ctx := context.Background()
 	req := &hello.HelloRequest{Name: "Chaitra"}
-	res, err := mockGreeterClient.SayHello(context.Background(), req)
 
-	// Assertions to ensure expected behavior
+	// Call the SayHello method on the mock client
+	resp, err := mockGreeterClient.SayHello(ctx, req)
+
+	// Assert no error and response correctness
 	assert.NoError(t, err)
-	assert.Equal(t, "Hello, Chaitra!", res.Message)
-	assert.Equal(t, "Hello received: Chaitra", res.Acknowledgment)
+	assert.Equal(t, "Hello Chaitra", resp.Message)
+	assert.Equal(t, "Hello received: Chaitra", resp.Acknowledgment)
 }
